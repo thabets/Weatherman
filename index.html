@@ -11,23 +11,39 @@
 </head>
 
 <body>
-    <div class="row1">
+    <div class="row">
         <div class='col-12 header'>
             <h1>Weather Dashboard</h1>
         </div>
     </div>
-    <div class="row2">
-        <div class="col-sm-4">
+    <div class="row">
+        <div class="info col-md-2">
             <h2>Search For a City:</h2>
             <input type="text" id="city" value='Insert City Here'><br>
             <button class='button' id='btn'>Search</button>
+            <hr size='2' width="90%" color="grey" align="left">
         </div>
-        <div class="col-sm-8">
-            <h2>Hello</h2>
-
+        <div id="info" class="col-md-10">
         </div>
 
     </div>
+    <div class="row">
+        <div class='col-sm-2'></div>
+        <H2 class="5day">5-Day Forecast:</H2>
+
+
+    </div>
+    <div class="row">
+        <div class='col-md-2'></div>
+        <div id="day1" class='col-sm-2'> </div>
+        <div id="day2" class='col-sm-2'> </div>
+        <div id="day3" class='col-sm-2'> </div>
+        <div id="day4" class='col-sm-2'> </div>
+        <div id="day5" class='col-sm-2'> </div>
+    </div>
+
+
+
 
 
     <script src="script.js"></script>
