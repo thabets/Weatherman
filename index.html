@@ -8,46 +8,48 @@
     <title>Weather Man</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="./styles.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </head>
 
 <body>
-    <div class="row">
-        <div class='col-12 header'>
-            <h1>Weather Dashboard</h1>
+    <div class='container'>
+        <div class="row">
+            <div class='col-12 header'>
+                <h1>Weather Dashboard</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="info col-md-2">
+                <h2>Search For a City:</h2>
+                <input type="text" id="city" placeholder="City..">
+                <button class='button' id='btn'>Search</button>
+                <hr size='2' width="90%" color="grey" align="left">
+            </div>
+            <div id="info" class="col-md-10">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class='col-sm-2'></div>
+            <H2 class="5day">5-Day Forecast:</H2>
+
+
+        </div>
+        <div class="row">
+            <div class='col-md-2'></div>
+            <div id="day1" class='col-sm-2'> </div>
+            <div id="day2" class='col-sm-2'> </div>
+            <div id="day3" class='col-sm-2'> </div>
+            <div id="day4" class='col-sm-2'> </div>
+            <div id="day5" class='col-sm-2'> </div>
         </div>
     </div>
-    <div class="row">
-        <div class="info col-md-2">
-            <h2>Search For a City:</h2>
-            <input type="text" id="city" value='Insert City Here'><br>
-            <button class='button' id='btn'>Search</button>
-            <hr size='2' width="90%" color="grey" align="left">
-        </div>
-        <div id="info" class="col-md-10">
-        </div>
-
-    </div>
-    <div class="row">
-        <div class='col-sm-2'></div>
-        <H2 class="5day">5-Day Forecast:</H2>
-
-
-    </div>
-    <div class="row">
-        <div class='col-md-2'></div>
-        <div id="day1" class='col-sm-2'> </div>
-        <div id="day2" class='col-sm-2'> </div>
-        <div id="day3" class='col-sm-2'> </div>
-        <div id="day4" class='col-sm-2'> </div>
-        <div id="day5" class='col-sm-2'> </div>
-    </div>
-
 
 
 
 
     <script src="script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 </body>

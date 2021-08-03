@@ -2,7 +2,7 @@ let search = document.getElementsByClassName("space");
 var searchBtn = document.getElementById("btn");
 const apiKey = "94f1070b60b1605c526e15498b20130c";
 
-document.querySelector("#btn").addEventListener("click", function () {
+$("#btn").on("click", function () {
   let searchTerm = document.querySelector("#city").value;
   var id = "city";
   var info = document.getElementById("info");
@@ -101,6 +101,12 @@ document.querySelector("#btn").addEventListener("click", function () {
           }
 
           // 5-Day Forecast Variables and its API allocation
+          // Date Variables
+          var date = new Date();
+          var day = date.getDay();
+          var month = date.getMonth();
+          var year = date.getFullYear();
+
           //day1
           var day1 = document.getElementById("day1");
 
@@ -108,6 +114,12 @@ document.querySelector("#btn").addEventListener("click", function () {
             "style",
             "background-color:grey; color:white; border: white solid 2px"
           );
+
+          var fullDate1 = document.createElement("p");
+          fullDate1.innerText =
+            "(" + (day + 1) + "-" + (month + 1) + "-" + year + ")";
+          day1.appendChild(fullDate1);
+
           var day1Icon = document.createElement("img");
           day1Icon.setAttribute(
             "src",
@@ -137,6 +149,11 @@ document.querySelector("#btn").addEventListener("click", function () {
             "style",
             "background-color:grey; color:white;border: white solid 2px"
           );
+          var fullDate2 = document.createElement("p");
+          fullDate2.innerText =
+            "(" + (day + 2) + "-" + (month + 1) + "-" + year + ")";
+          day2.appendChild(fullDate2);
+
           var day2Icon = document.createElement("img");
           day2Icon.setAttribute(
             "src",
@@ -166,6 +183,12 @@ document.querySelector("#btn").addEventListener("click", function () {
             "style",
             "background-color:grey; color:white;border: white solid 2px"
           );
+
+          var fullDate3 = document.createElement("p");
+          fullDate3.innerText =
+            "(" + (day + 3) + "-" + (month + 1) + "-" + year + ")";
+          day3.appendChild(fullDate3);
+
           var day3Icon = document.createElement("img");
           day3Icon.setAttribute(
             "src",
@@ -195,6 +218,12 @@ document.querySelector("#btn").addEventListener("click", function () {
             "style",
             "background-color:grey; color:white;border: white solid 2px"
           );
+
+          var fullDate4 = document.createElement("p");
+          fullDate4.innerText =
+            "(" + (day + 4) + "-" + (month + 1) + "-" + year + ")";
+          day4.appendChild(fullDate4);
+
           var day4Icon = document.createElement("img");
           day4Icon.setAttribute(
             "src",
@@ -224,6 +253,11 @@ document.querySelector("#btn").addEventListener("click", function () {
             "style",
             "background-color:grey; color:white;border: white solid 2px"
           );
+          var fullDate5 = document.createElement("p");
+          fullDate5.innerText =
+            "(" + (day + 5) + "-" + (month + 1) + "-" + year + ")";
+          day5.appendChild(fullDate5);
+
           var day5Icon = document.createElement("img");
           day5Icon.setAttribute(
             "src",
