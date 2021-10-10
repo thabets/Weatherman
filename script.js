@@ -3,6 +3,15 @@ var searchBtn = document.getElementById("btn");
 const apiKey = "94f1070b60b1605c526e15498b20130c";
 
 $("#btn").on("click", function () {
+  function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+    }
+  }
+  const infoContainer = document.querySelector("#info");
+  const fiveDay = document.querySelector("#fiveDay");
+  removeAllChildNodes(infoContainer);
+
   let searchTerm = document.querySelector("#city").value;
   var id = "city";
   var info = document.getElementById("info");
@@ -13,7 +22,7 @@ $("#btn").on("click", function () {
   //Fetch Function
 
   fetch(
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
       searchTerm +
       "&APPID=" +
       apiKey +
@@ -37,8 +46,9 @@ $("#btn").on("click", function () {
       var temp = document.createElement("p");
       var wind = document.createElement("p");
       var humidity = document.createElement("p");
-      var UV = document.createElement("p");
+      var UV = document.createElement("span");
       var icon = document.createElement("img");
+      var Uvinfo = document.createElement("span");
 
       //Extracting API Info and appending items to the list
       dayInfo.textContent = "What To Expect Today:";
@@ -48,7 +58,7 @@ $("#btn").on("click", function () {
       // Extract icon information from API then set it to the Icon variable
       icon.setAttribute(
         "src",
-        "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
+        "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png"
       );
       city.appendChild(icon);
 
@@ -81,22 +91,36 @@ $("#btn").on("click", function () {
         })
         .then(function (obj) {
           console.log(obj);
+
           let UVinfo = obj.current.uvi;
+          console.log(UVinfo);
 
           //Creating the UV Index and appending it to the weather report
 
           UV.innerText = "UV Index: " + UVinfo;
           if (UVinfo <= 2) {
-            UV.setAttribute("style", "background-color: Green");
+            UV.setAttribute(
+              "style",
+              "background-color: Green; border-radius: .5rem; padding:5px; color:white; "
+            );
             info.appendChild(UV);
           } else if (UVinfo <= 5) {
-            UV.setAttribute("style", "background-color: Yellow");
+            UV.setAttribute(
+              "style",
+              "background-color: Yellow; border-radius: .5rem; padding:5px; color:white; "
+            );
             info.appendChild(UV);
           } else if (UVinfo <= 7) {
-            UV.setAttribute("style", "background-color: Orange");
+            UV.setAttribute(
+              "style",
+              "background-color: Orange; border-radius: .5rem; padding:5px; color:white; "
+            );
             info.appendChild(UV);
           } else {
-            UV.setAttribute("style", "background-color: Red");
+            UV.setAttribute(
+              "style",
+              "background-color: Red; border-radius: .5rem; padding:5px; color:white; "
+            );
             info.appendChild(UV);
           }
 
@@ -112,7 +136,7 @@ $("#btn").on("click", function () {
 
           day1.setAttribute(
             "style",
-            "background-color:grey; color:white; border: white solid 2px"
+            "background-color:#6495ED; color:white; border: white solid 2px; border-radius:1rem"
           );
 
           var fullDate1 = document.createElement("p");
@@ -123,7 +147,7 @@ $("#btn").on("click", function () {
           var day1Icon = document.createElement("img");
           day1Icon.setAttribute(
             "src",
-            "http://openweathermap.org/img/w/" +
+            "https://openweathermap.org/img/w/" +
               obj.daily[1].weather[0].icon +
               ".png"
           );
@@ -147,7 +171,7 @@ $("#btn").on("click", function () {
 
           day2.setAttribute(
             "style",
-            "background-color:grey; color:white;border: white solid 2px"
+            "background-color:#6495ED; color:white;border: white solid 2px; border-radius:1rem"
           );
           var fullDate2 = document.createElement("p");
           fullDate2.innerText =
@@ -157,7 +181,7 @@ $("#btn").on("click", function () {
           var day2Icon = document.createElement("img");
           day2Icon.setAttribute(
             "src",
-            "http://openweathermap.org/img/w/" +
+            "https://openweathermap.org/img/w/" +
               obj.daily[2].weather[0].icon +
               ".png"
           );
@@ -181,7 +205,7 @@ $("#btn").on("click", function () {
 
           day3.setAttribute(
             "style",
-            "background-color:grey; color:white;border: white solid 2px"
+            "background-color:#6495ED; color:white;border: white solid 2px; border-radius:1rem"
           );
 
           var fullDate3 = document.createElement("p");
@@ -192,7 +216,7 @@ $("#btn").on("click", function () {
           var day3Icon = document.createElement("img");
           day3Icon.setAttribute(
             "src",
-            "http://openweathermap.org/img/w/" +
+            "https://openweathermap.org/img/w/" +
               obj.daily[3].weather[0].icon +
               ".png"
           );
@@ -216,7 +240,7 @@ $("#btn").on("click", function () {
 
           day4.setAttribute(
             "style",
-            "background-color:grey; color:white;border: white solid 2px"
+            "background-color:#6495ED; color:white;border: white solid 2px; border-radius:1rem"
           );
 
           var fullDate4 = document.createElement("p");
@@ -227,7 +251,7 @@ $("#btn").on("click", function () {
           var day4Icon = document.createElement("img");
           day4Icon.setAttribute(
             "src",
-            "http://openweathermap.org/img/w/" +
+            "https://openweathermap.org/img/w/" +
               obj.daily[4].weather[0].icon +
               ".png"
           );
@@ -251,7 +275,7 @@ $("#btn").on("click", function () {
 
           day5.setAttribute(
             "style",
-            "background-color:grey; color:white;border: white solid 2px"
+            "background-color:#6495ED; color:white;border: white solid 2px; border-radius:1rem"
           );
           var fullDate5 = document.createElement("p");
           fullDate5.innerText =
@@ -261,7 +285,7 @@ $("#btn").on("click", function () {
           var day5Icon = document.createElement("img");
           day5Icon.setAttribute(
             "src",
-            "http://openweathermap.org/img/w/" +
+            "https://openweathermap.org/img/w/" +
               obj.daily[5].weather[0].icon +
               ".png"
           );
