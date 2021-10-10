@@ -38,7 +38,7 @@ $("#btn").on("click", function () {
   var cityHistoryBtn = document.createElement("div");
   cityHistoryBtn.setAttribute(
     "style",
-    " width: 90%; background-color: rgb(70, 70, 255); border-radius: 1rem; padding: 5px 0 5px 0;color: rgb(218, 218, 218);margin-top: 10px; text-align:center;"
+    " width: 90%; background-color: #CDCDCD;  padding: 5px 0 5px 0;color: Black;margin-top: 10px; text-align:center;"
   );
   cityHistoryBtn.textContent = searchTerm;
   cityHistory.appendChild(cityHistoryBtn);
