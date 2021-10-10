@@ -53,7 +53,6 @@ $("#btn").on("click", function () {
       "&units=metric"
   )
     .then(function (response) {
-      console.log(response);
       //added Error Function
       if (response.status === 404) {
         alert("Please Double Check The City And Try Again.");
@@ -64,7 +63,6 @@ $("#btn").on("click", function () {
       }
     })
     .then(function (data) {
-      console.log(data);
       //first div box containing the main information for city
       let city = document.createElement("h2");
       city.textContent = searchTerm;
@@ -102,10 +100,8 @@ $("#btn").on("click", function () {
 
       // Retrieved Lat & Lon information for second Fetch
       let lon = data.coord.lon;
-      console.log(lon);
 
       let lat = data.coord.lat;
-      console.log(lat);
 
       // Established a second fetch call for API regarding UV as well as 5 day weather format
 
@@ -122,10 +118,7 @@ $("#btn").on("click", function () {
           return response.json();
         })
         .then(function (obj) {
-          console.log(obj);
-
           let UVinfo = obj.current.uvi;
-          console.log(UVinfo);
 
           //Creating the UV Index and appending it to the weather report
 
