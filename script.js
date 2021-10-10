@@ -1,6 +1,8 @@
 let search = document.getElementsByClassName("space");
 var searchBtn = document.getElementById("btn");
+var cityHistory = document.getElementById("cityHistory");
 const apiKey = "94f1070b60b1605c526e15498b20130c";
+const history = []; // This is for the local storage of the cities saved
 
 $("#btn").on("click", function () {
   //Function to refresh and remove old searches from page
@@ -16,6 +18,7 @@ $("#btn").on("click", function () {
   var day3 = document.getElementById("day3");
   var day4 = document.getElementById("day4");
   var day5 = document.getElementById("day5");
+  //Future work utilize a forloop to resolve the repetitiveness
   removeAllChildNodes(infoContainer);
   removeAllChildNodes(day1);
   removeAllChildNodes(day2);
@@ -24,11 +27,21 @@ $("#btn").on("click", function () {
   removeAllChildNodes(day5);
 
   let searchTerm = document.querySelector("#city").value;
-  var id = "city";
   var info = document.getElementById("info");
 
+  //Pushing into an array of local storage
   localStorage.setItem(city, searchTerm);
-  console.log(searchTerm);
+  history.push(searchTerm);
+
+  //Creating the History Functionality and Button
+
+  var cityHistoryBtn = document.createElement("div");
+  cityHistoryBtn.setAttribute(
+    "style",
+    " width: 90%; background-color: rgb(70, 70, 255); border-radius: 1rem; padding: 5px 0 5px 0;color: rgb(218, 218, 218);margin-top: 10px; text-align:center;"
+  );
+  cityHistoryBtn.textContent = searchTerm;
+  cityHistory.appendChild(cityHistoryBtn);
 
   //Fetch Function
 
@@ -40,7 +53,15 @@ $("#btn").on("click", function () {
       "&units=metric"
   )
     .then(function (response) {
-      return response.json();
+      console.log(response);
+      //added Error Function
+      if (response.status === 404) {
+        alert("Please Double Check The City And Try Again.");
+      } else if (response.status === 400) {
+        alert("Please Enter A City And Try Again.");
+      } else {
+        return response.json();
+      }
     })
     .then(function (data) {
       console.log(data);
