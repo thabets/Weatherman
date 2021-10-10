@@ -3,19 +3,30 @@ var searchBtn = document.getElementById("btn");
 const apiKey = "94f1070b60b1605c526e15498b20130c";
 
 $("#btn").on("click", function () {
+  //Function to refresh and remove old searches from page
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
     }
   }
+  //variables identifying what will be refreshed
   const infoContainer = document.querySelector("#info");
-  const fiveDay = document.querySelector("#fiveDay");
+  var day1 = document.getElementById("day1");
+  var day2 = document.getElementById("day2");
+  var day3 = document.getElementById("day3");
+  var day4 = document.getElementById("day4");
+  var day5 = document.getElementById("day5");
   removeAllChildNodes(infoContainer);
+  removeAllChildNodes(day1);
+  removeAllChildNodes(day2);
+  removeAllChildNodes(day3);
+  removeAllChildNodes(day4);
+  removeAllChildNodes(day5);
 
   let searchTerm = document.querySelector("#city").value;
   var id = "city";
   var info = document.getElementById("info");
-  var day1 = document.getElementById("day1");
+
   localStorage.setItem(city, searchTerm);
   console.log(searchTerm);
 
