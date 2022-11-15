@@ -27,11 +27,17 @@ $("#btn").on("click", function () {
   removeAllChildNodes(day5);
 
   let searchTerm = document.querySelector("#city").value;
-  var info = document.getElementById("info");
+  console.log(searchTerm);
+  //! might not need the code below
+  //var info = document.getElementById("info");
+  //console.log(info);
 
   //Pushing into an array of local storage
   localStorage.setItem(city, searchTerm);
-  history.push(searchTerm);
+  //Making sure that repetitive cities are not inserted into the array
+  if (!history.includes(searchTerm)) {
+    history.push(searchTerm);
+  }
 
   //Creating the History Functionality and Button
 
@@ -43,7 +49,7 @@ $("#btn").on("click", function () {
   cityHistoryBtn.textContent = searchTerm;
   cityHistory.appendChild(cityHistoryBtn);
 
-  //Fetch Function
+  // Fetch Function utilizing the API
 
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
