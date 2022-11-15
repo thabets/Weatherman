@@ -26,28 +26,25 @@ $("#btn").on("click", function () {
   removeAllChildNodes(day4);
   removeAllChildNodes(day5);
 
+  //Setting the search variable to be used down the line
   let searchTerm = document.querySelector("#city").value;
-  console.log(searchTerm);
-  //! might not need the code below
-  //var info = document.getElementById("info");
-  //console.log(info);
 
-  //Pushing into an array of local storage
+  //Establishing the parameters of local storage
   localStorage.setItem(city, searchTerm);
-  //Making sure that repetitive cities are not inserted into the array
+
+  //Pushing the search term into the history array and making sure that repetitive cities are not inserted into the array and are not displayed repetitively
   if (!history.includes(searchTerm)) {
     history.push(searchTerm);
+    //Creating the History Functionality and Button
+    var cityHistoryBtn = document.createElement("button");
+    cityHistoryBtn.setAttribute(
+      "style",
+      " width: 90%; background-color: #CDCDCD;  padding: 5px 0 5px 0;color: Black;margin-top: 10px; text-align:center;"
+    );
+    cityHistoryBtn.textContent = searchTerm;
+    cityHistoryBtn.id = searchTerm;
+    cityHistory.appendChild(cityHistoryBtn);
   }
-
-  //Creating the History Functionality and Button
-
-  var cityHistoryBtn = document.createElement("div");
-  cityHistoryBtn.setAttribute(
-    "style",
-    " width: 90%; background-color: #CDCDCD;  padding: 5px 0 5px 0;color: Black;margin-top: 10px; text-align:center;"
-  );
-  cityHistoryBtn.textContent = searchTerm;
-  cityHistory.appendChild(cityHistoryBtn);
 
   // Fetch Function utilizing the API
 
