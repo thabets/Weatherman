@@ -4,7 +4,7 @@ var cityHistory = document.getElementById("cityHistory");
 const apiKey = "94f1070b60b1605c526e15498b20130c";
 const history = []; // This is for the local storage of the cities saved
 
-$("#btn").on("click", function () {
+$("#btn").on("click", function callback() {
   //Function to refresh and remove old searches from page
   function removeAllChildNodes(parent) {
     while (parent.firstChild) {
@@ -45,6 +45,8 @@ $("#btn").on("click", function () {
     cityHistoryBtn.id = searchTerm;
     cityHistory.appendChild(cityHistoryBtn);
   }
+
+  
 
   // Fetch Function utilizing the API
 
@@ -155,9 +157,10 @@ $("#btn").on("click", function () {
           // 5-Day Forecast Variables and its API allocation
           // Date Variables
           var date = new Date();
-          var day = date.getDay();
+          var day = date.getDate();
           var month = date.getMonth();
           var year = date.getFullYear();
+          
 
           //day1
           var day1 = document.getElementById("day1");
