@@ -1,7 +1,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)![CurrentVersion](https://img.shields.io/badge/version-1.02-green.svg)
 
----
+
 # Project name 
 Weatherman
 
