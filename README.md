@@ -9,7 +9,7 @@ Weatherman
 Sam Thabet
 
 # Description
-This is a simple application to demonstrate the ability to extract information using Rest API
+This is a simple application that will provide the user with detailed weather information such as a uv index, wind speed, and temperatures of any city. This appliecation demonstrates the use of being able to extract information through an API. 
 
 ## Prerequisites
 Before you begin, ensure you have met the following requirements:
